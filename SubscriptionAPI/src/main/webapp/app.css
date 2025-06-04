@@ -1,0 +1,392 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    letter-spacing: 1px;
+}
+
+form {
+    width: 100%;
+    max-width: 480px;
+    margin: 2em auto 0 auto;
+    padding: 2.5em 2em 2em 2em;
+    border-radius: 1em;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8em;
+    gap: 0.3em;
+}
+
+.form-group label {
+    margin-bottom: 0.2em;
+    color: #34495e;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    padding: 0.7em;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5em;
+    font-size: 1em;
+    background: #f9fafb;
+    transition: border 0.2s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus {
+    border: 1.5px solid #007BFF;
+    outline: none;
+    background: #fff;
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    margin-right: 0.5em;
+}
+
+.form-group > div {
+    display: flex;
+    gap: 1.2em;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+input[type="submit"], #cancelEditBtn {
+    width: 48%;
+    margin-top: 1.2em;
+    padding: 0.9em;
+    border: none;
+    border-radius: 0.5em;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-block;
+}
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    margin-right: 2%;
+}
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+#cancelEditBtn {
+    background: #e0e0e0;
+    color: #333;
+}
+#cancelEditBtn:hover {
+    background: #bdbdbd;
+    color: #111;
+}
+
+.validation-message {
+    color: #e74c3c;
+    font-size: 0.92em;
+    margin-top: 0.2em;
+    display: none;
+}
+
+#subscriptions {
+    max-width: 1000px;
+    margin: 2em auto 0 auto;
+    background: #fff;
+    border-radius: 1em;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.06);
+    padding: 2em 2em 1.5em 2em;
+    font-size: 1em;
+    color: #222;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#subscriptions .form-group {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 1.5em auto;
+    display: flex;
+    justify-content: center;
+}
+
+#filterInput {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.7em;
+    border-radius: 0.5em;
+    border: 1px solid #d1d5db;
+    font-size: 1em;
+    box-sizing: border-box;
+    background: #f9fafb;
+    margin-bottom: 0.5em;
+}
+
+#fetchSubscriptionsButton {
+    display: block;
+    margin: 1.5em auto 1.5em auto;
+    padding: 0.7em 2em;
+    background: #16a085;
+    color: #fff;
+    border: none;
+    border-radius: 0.5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#fetchSubscriptionsButton:hover {
+    background: #138d75;
+}
+
+#togglePriceFormButton {
+    display: block;
+    margin: 1.5em auto 1.5em auto;
+    padding: 0.7em 2em;
+    background: #138d75;
+    color: #fff;
+    border: none;
+    border-radius: 0.5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#togglePriceFormButton:hover {
+    background: #2c3e50;
+}
+
+#fetchSubPriceButton{
+    display: block;
+    margin: 1.5em auto 1.5em auto;
+    padding: 0.7em 2em;
+    background: #e67e22;
+    color: #fff;
+    border: none;
+    border-radius: 0.5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#fetchSubPriceButton:hover {
+    background: #d35400;
+}
+
+.success-banner {
+    display: block;
+    width: 100%;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 1em auto 1.5em auto;
+    text-align: center;
+    font-size: 1.05em;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(40,167,69,0.08);
+}
+#priceManagementForm {
+    margin-bottom: 2em; /* Add spacing below the form */
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto; /* Center the form */
+}
+
+#pricesTable {
+    margin: 2em auto;
+    max-width: 1000px;
+    background: #fff;
+    border-radius: 1em;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+    padding: 1.5em;
+    font-size: 1em;
+    color: #222;
+    overflow-x: auto;
+}
+
+#pricesTable table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+#pricesTable th, #pricesTable td {
+    padding: 0.9em 0.7em;
+    border-bottom: 1px solid #eaeaea;
+    text-align: left;
+    font-size: 1.05em;
+    word-break: break-word;
+}
+
+#pricesTable th {
+    background: #007BFF;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+#pricesTable tr:last-child td {
+    border-bottom: none;
+}
+
+#pricesTable th, #pricesTable td {
+    min-width: 90px;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007BFF;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s linear infinite;
+    margin: 1em auto;
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.subs-table {
+    width: 100%;
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 1em;
+    background: #fafbfc;
+    border-radius: 0.5em;
+    overflow: auto;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    table-layout: auto;
+}
+.subs-table th, .subs-table td {
+    padding: 0.9em 0.7em;
+    border-bottom: 1px solid #eaeaea;
+    text-align: left;
+    font-size: 1.05em;
+    word-break: break-word;
+}
+.subs-table th {
+    background: #007BFF;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+.subs-table tr:last-child td {
+    border-bottom: none;
+}
+.subs-table th, .subs-table td {
+    min-width: 90px;
+}
+
+.edit-btn, .delete-btn {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 90px;
+    padding: 0.4em 1.5em;
+    margin: 0 0.2em;
+    border: none;
+    border-radius: 0.4em;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+    white-space: nowrap;
+}
+.edit-btn {
+    background: #f1c40f;
+    color: #222;
+}
+.edit-btn:hover {
+    background: #f39c12;
+    color: #fff;
+}
+.delete-btn {
+    background: #e74c3c;
+    color: #fff;
+}
+.delete-btn:hover {
+    background: #c0392b;
+    color: #fff;
+}
+
+#cancelEditBtn {
+    min-width: 90px;
+    padding: 0.4em 1.5em;
+    margin: 0 0.2em;
+    border: none;
+    border-radius: 0.4em;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    background: #e0e0e0;
+    color: #333;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+}
+#cancelEditBtn:hover {
+    background: #bdbdbd;
+    color: #111;
+}
+
+.subs-table td:last-child {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@media (max-width: 1100px) {
+    #pricesTable {
+        padding: 1em;
+    }
+    #pricesTable th, #pricesTable td {
+        padding: 0.7em 0.5em;
+        font-size: 0.98em;
+    }
+}
+
+@media (max-width: 1100px) {
+    #subscriptions {
+        padding: 1em 0.5em;
+    }
+    .subs-table th, .subs-table td {
+        padding: 0.7em 0.5em;
+        font-size: 0.98em;
+    }
+    form {
+        padding: 1.5em 0.5em;
+    }
+}
